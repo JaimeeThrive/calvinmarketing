@@ -1,0 +1,108 @@
+.agency-bot-ban.n-single-banner p{
+	padding-left:0;
+}
+
+.home_see_more{
+	min-width:155px !important;
+}
+.work-twocol h5{
+	padding-left:0;
+}
+.home_see_more.readmore-wrap:hover > span:nth-child(1){
+	width:135px !important;
+}
+.agency-bot-ban.n-single-banner h4{
+	width:100%;
+}
+ .agency-bot-ban.n-single-banner p{
+	width:100%;
+    font-size:34px;
+    line-height:46px;
+}
+.single-post .agency-bot-ban .container{
+	padding:0;
+}
+.agency-bot-ban.workcasestudy-banner p{
+	font-size:34px;
+    line-height:46px;
+}
+.banner_image_mobile{
+	display:none;
+}
+.subsection .right-col ul{
+	display:block;
+    margin-left: 0;
+    width:100%;
+    padding-left:0;
+}
+.agency-bot-ban .container{
+	padding:0 5px;
+}
+.subsection .right-col{
+	display:block;
+    padding-left:40px;
+}
+@media (max-width: 768px){
+	.subsection .right-col ul{
+        margin-left: 0;
+    }
+    .subsection .right-col{
+	
+    padding-left:15px;
+	}
+}
+@media (max-width:992px){
+	.team .textdiv{
+    	background-color: rgb(204 4 8);
+    }
+}
+@media (max-width: 575px){
+.agency-bot-ban .container{
+	padding:0 15px;
+}
+    .work-small-banner img {
+        object-fit:contain;
+    }
+    .work-small-banner{
+    	height:auto;
+    }
+    
+    .team .textdiv{
+    	background-color: rgb(204 4 8);
+    }
+    .agency-bot-ban.n-single-banner p{
+        font-size: 25px;
+        line-height: 36px;
+    }
+    .single-post .agency-bot-ban .container{
+	    padding:0 15px;
+	}
+    .agency-bot-ban.workcasestudy-banner p{
+	    font-size: 25px;
+        line-height: 36px;
+	}
+    .banner > img:nth-child(1){
+        display:none !important;
+    }
+    .banner_image_mobile{
+        display:block !important;
+    }
+    .banner:after{
+        top:0;
+    }
+    .agency-bot-ban n-single-banner{
+    background-image:none !important;
+    }
+
+}
+.agency-bot-ban.n-single-banner .banner_image_mobile{
+	    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+}
+ .banner:after{
+        top:0;
+}
