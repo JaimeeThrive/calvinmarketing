@@ -1,0 +1,109 @@
+# ==================================================
+# .gitignore for Gitlab
+# ==================================================
+
+# ignore everything in the root except the "wp-content" directory.
+/*
+!wp-content/
+!front-end
+
+# ignore all files starting with .
+.*
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+
+# track .editorconfig file (i.e. do NOT ignore it)
+!.editorconfig
+
+# track readme.md in the root (i.e. do NOT ignore it)
+!readme.md
+
+# ignore all files that start with ~
+~*
+
+# ignore OS generated files
+**.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+*.env
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.map
+
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins" directory
+# "plugins" directory
+# "themes" directory
+wp-content/*
+!wp-content/plugins/
+!wp-content/themes/
+
+# ignore these plugins from the core
+wp-content/plugins/hello.php
+wp-content/plugins/akismet/
+
+# ignore specific themes
+wp-content/themes/twenty*/
+
+# ignore node/grunt dependency directories
+node_modules/
+/node_modules/
+
+# ignore sass
+**/.sass-cache
+**/.sass-cache/*
+**/.map
+
+# ignore composer
+!assets/js/vendor/
+wpcs/
+/vendor/
+
+# ignore bower #
+assets/bower_components/*
+
+# ignore codekit #
+/codekit-config.json
+*.codekit
+**.codekit-cache/*
+
+Codekit
+
+# ignore compiled files and build directories #
+/README.html
+
+# ignore PHPStrom project files #
+.idea/
+library/vendors/composer
+assets/img/.DS_Store

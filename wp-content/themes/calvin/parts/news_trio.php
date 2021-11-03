@@ -1,8 +1,8 @@
 <div class="last3-block container">
-        <div class="news-listing ">
-          <div class="row">
+    <div class="news-listing ">
+        <div class="row">
 
-      <?php 
+            <?php 
           $custom_args = array(
             'post_type' => 'post',
             'posts_per_page' => 3,
@@ -13,19 +13,19 @@
           );
           $custom_query = new WP_Query( $custom_args ); 
         ?>
-        <?php if ( $custom_query->have_posts() ) : ?>
-          <?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
+            <?php if ( $custom_query->have_posts() ) : ?>
+            <?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
 
-              <div class="col-md-6 col-lg-4 ">
+            <div class="col-md-6 col-lg-4 ">
                 <div class="contentdiv ">
-                  <img src="<?php the_field('newslisting_thumbnail'); ?>" alt="">
-                  <a href="<?php the_permalink(); ?>" class="textdiv">
-                    <h5><?php the_title();?></h5>
-                    <h6><?php the_excerpt(); ?></h6>
-                    <h6><?php echo get_the_date('d M Y'); ?></h6>
-                   
-                    <h6>
-                      <?php
+                    <img src="<?php the_field('newslisting_thumbnail'); ?>" alt="">
+                    <a href="<?php the_permalink(); ?>" class="textdiv">
+                        <h5><?php the_title();?></h5>
+                        <h6><?php the_excerpt(); ?></h6>
+                        <h6><?php echo get_the_date('M Y'); ?></h6>
+
+                        <h6>
+                            <?php
 
                           $categories = get_the_category();
                           foreach($categories as $category) {
@@ -36,16 +36,16 @@
                           
                          
                       ?>
-                    </h6>
-                              
-                  </a>           
-                </div>
-              </div>       
-          
-          <?php endwhile; ?>
-           
-        <?php endif; wp_reset_query();?>
+                        </h6>
 
-        </div>        
+                    </a>
+                </div>
+            </div>
+
+            <?php endwhile; ?>
+
+            <?php endif; wp_reset_query();?>
+
         </div>
-      </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2018 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,16 +23,42 @@
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Kangaroos cannot jump here' );
+}
+
 class Ai1wm_Database_Mysql extends Ai1wm_Database {
 
 	/**
 	 * Run MySQL query
 	 *
-	 * @param  string   $input SQL query
-	 * @return resource
+	 * @param  string $input SQL query
+	 * @return mixed
 	 */
 	public function query( $input ) {
-		return mysql_query( $input, $this->wpdb->dbh );
+		if ( ! ( $result = mysql_query( $input, $this->wpdb->dbh ) ) ) {
+			$mysql_errno = 0;
+
+			// Get MySQL error code
+			if ( ! empty( $this->wpdb->dbh ) ) {
+				if ( is_resource( $this->wpdb->dbh ) ) {
+					$mysql_errno = mysql_errno( $this->wpdb->dbh );
+				} else {
+					$mysql_errno = 2006;
+				}
+			}
+
+			// MySQL server has gone away, try to reconnect
+			if ( empty( $this->wpdb->dbh ) || 2006 === $mysql_errno ) {
+				if ( ! $this->wpdb->check_connection( false ) ) {
+					throw new Ai1wm_Database_Exception( __( 'Error reconnecting to the database. <a href="https://help.servmask.com/knowledgebase/mysql-error-reconnecting/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), 503 );
+				}
+
+				$result = mysql_query( $input, $this->wpdb->dbh );
+			}
+		}
+
+		return $result;
 	}
 
 	/**
@@ -48,7 +74,7 @@ class Ai1wm_Database_Mysql extends Ai1wm_Database {
 	/**
 	 * Return the error code for the most recent function call
 	 *
-	 * @return int
+	 * @return integer
 	 */
 	public function errno() {
 		return mysql_errno( $this->wpdb->dbh );
@@ -96,7 +122,7 @@ class Ai1wm_Database_Mysql extends Ai1wm_Database {
 	 * Return the number for rows from MySQL results
 	 *
 	 * @param  resource $result MySQL resource
-	 * @return int
+	 * @return integer
 	 */
 	public function num_rows( $result ) {
 		return mysql_num_rows( $result );
@@ -106,7 +132,7 @@ class Ai1wm_Database_Mysql extends Ai1wm_Database {
 	 * Free MySQL result memory
 	 *
 	 * @param  resource $result MySQL resource
-	 * @return bool
+	 * @return boolean
 	 */
 	public function free_result( $result ) {
 		return mysql_free_result( $result );

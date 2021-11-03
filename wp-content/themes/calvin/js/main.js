@@ -2,7 +2,7 @@
 
 
 
-mySwiper = new Swiper ('.swiper-container', {   
+mySwiper = new Swiper ('.swiper-container', {
      autoHeight: true,
     loop:true,
     autoplay: {
@@ -16,6 +16,30 @@ mySwiper = new Swiper ('.swiper-container', {
     },
 
 });
+(function($) {
+
+$('.client-carousel').owlCarousel({
+  loop:true,
+    margin:20,
+    nav:false,
+
+    responsive:{
+        0:{
+            items:1,
+            autoplay: true,
+            dots: false
+        },
+        600:{
+            items:3,
+            dots: true
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+
+})( jQuery );
 
 jQuery(document).ready(function () {
 
@@ -24,9 +48,9 @@ jQuery(document).ready(function () {
      jQuery('.menudiv').toggleClass('visible');
      jQuery('body').toggleClass('no-scroll');
   });
-  
+
   jQuery('.closespan').on('click', function () {
-     
+
     window.history.back();
   });
 
@@ -34,12 +58,12 @@ jQuery(document).ready(function () {
    jQuery('.img-wrap').matchHeight({property:'min-height'});
    jQuery('.text-wrap').matchHeight({property:'min-height'});
     jQuery('.contentheight').matchHeight({property:'min-height'});
-   
-   
-   
+
+
+
 
   var scrollLink = jQuery('.arrow-wrap');
-  
+
   // Smooth scrolling
       scrollLink.click(function(e) {
         e.preventDefault();

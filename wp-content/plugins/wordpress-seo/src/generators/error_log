@@ -1,0 +1,1 @@
+[29-Oct-2021 06:44:51 UTC] PHP Fatal error:  Interface 'Yoast\WP\SEO\Generators\Generator_Interface' not found in /home/calvinm/public_html/wp-content/plugins/wordpress-seo/src/generators/breadcrumbs-generator.php on line 17
